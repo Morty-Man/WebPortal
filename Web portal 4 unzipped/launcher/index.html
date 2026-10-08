@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Launcher</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Launcher">
+<link rel="icon" id="fav" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" id="touch" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css?v=3">
+</head>
+<body>
+<main id="home">
+  <header><h1 id="title"></h1><button class="ib" id="editBtn" aria-label="Edit"></button></header>
+  <section id="grid"></section>
+  <div class="bar"><button class="round" id="addBtn" aria-label="Add"></button><button class="round" id="delBtn" aria-label="Remove"></button></div>
+</main>
+
+<div id="viewer" hidden>
+  <iframe id="frame" title="site" allow="fullscreen; clipboard-write; camera; microphone; geolocation; autoplay"></iframe>
+  <div id="spin"></div>
+  <div id="blocked" style="display:none"><p>The website doesn't allow you to enter</p><button class="round" id="backBtn" aria-label="Home"></button></div>
+  <button id="fab" aria-label="Home"></button>
+</div>
+
+<dialog id="addDlg"><form id="addForm" autocomplete="off">
+  <input id="aName" placeholder="Name" maxlength="24" required>
+  <input id="aUrl" placeholder="URL" inputmode="url" autocapitalize="off" required>
+  <div class="row"><button type="button" class="round ghost" data-close aria-label="Cancel"></button><button class="round pri" aria-label="Save" data-ico="check"></button></div>
+</form></dialog>
+
+<dialog id="cfmDlg"><div class="cfm"><p id="cfmText"></p>
+  <div class="row"><button type="button" class="round ghost" data-close aria-label="Cancel"></button><button type="button" class="round danger" id="cfmOk" aria-label="Delete"></button></div></div></dialog>
+
+<dialog id="setDlg"><form id="setForm" autocomplete="off">
+  <input id="sHead" placeholder="Heading" maxlength="40">
+  <div id="themes"></div>
+  <div class="iconBox">
+    <div class="edWrap"><canvas id="ed" width="440" height="440"></canvas><div class="empty" id="edEmpty"></div></div>
+    <div class="side">
+      <div class="prevs"><canvas id="p1" width="120" height="120"></canvas><canvas id="p2" width="64" height="64"></canvas></div>
+      <input type="range" id="zoom" min="1" max="4" step="0.01" value="1" aria-label="Zoom">
+      <label class="round ghost" id="upBtn" aria-label="Upload"><input type="file" id="file" accept="image/*" hidden></label>
+    </div>
+  </div>
+  <div class="row"><button type="button" class="round ghost" data-close aria-label="Cancel"></button><button class="round pri" aria-label="Save" data-ico="check"></button></div>
+</form></dialog>
+<script src="/app.js?v=3"></script>
+</body>
+</html>
